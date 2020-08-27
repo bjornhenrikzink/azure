@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 {
-    log.LogInformation("C# HTTP trigger function processing a request.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
     // Query
     string name = req.Query["name"];
@@ -18,12 +18,14 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 
     // Query or Input name?
     name = name ?? data?.name;
+    name = name ?? "Björn-Henrik Zink";
 
     // Create json object
-    var jsonObj = new {msg = "Hello", name = name};
+    var jsonObj = new {name = name,domain = "Customer Fulfilment",productarea = "Digital Core", productteam = ""};
 
     log.LogInformation("C# HTTP trigger function returning a json response");
-    
+
     // Return json
-    return new JsonResult(JsonConvert.SerializeObject(jsonObj));
+    return new JsonResult(jsonObj);
 }
+
