@@ -18,10 +18,10 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 
     // Query or Input name?
     name = name ?? data?.name;
-    name = name ?? "Björn-Henrik Zink"; 
+    name = name ?? "Your name"; 
 
     // Create json object
-    var jsonObj = new {name = name, domain = "Customer Fulfilment", productarea = "Digital Core", productteam = ""};
+    var jsonObj = new {name = name, domain = "Your domain", productarea = "Your Product Area", productteam = "Your Product Team"};
 
     log.LogInformation("C# HTTP trigger function returning a json response");
 
